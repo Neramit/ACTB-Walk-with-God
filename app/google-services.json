@@ -1,0 +1,73 @@
+{
+  "project_info": {
+    "project_number": "606088339162",
+    "firebase_url": "https://testrealtimedatabase-3b1ff.firebaseio.com",
+    "project_id": "testrealtimedatabase-3b1ff",
+    "storage_bucket": "testrealtimedatabase-3b1ff.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:606088339162:android:90d9fd1c871b156b",
+        "android_client_info": {
+          "package_name": "com.example.chatchatapplication"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "606088339162-65tcjfhg5u4j0ehhdktncl84fhkodrgq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBMGXutLQFc5USu_xGw8eDFQRC7SvBlIlE"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:606088339162:android:865581f1e9e8a858",
+        "android_client_info": {
+          "package_name": "com.example.biblereading"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "606088339162-65tcjfhg5u4j0ehhdktncl84fhkodrgq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBMGXutLQFc5USu_xGw8eDFQRC7SvBlIlE"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

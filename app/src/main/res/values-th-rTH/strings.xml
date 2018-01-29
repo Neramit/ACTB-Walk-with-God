@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">ACTB - เดินกับพระเจ้า</string>
+    <string name="Announce">ประกาศงาน</string>
+    <string name="Devotion">เฝ้าเดี่ยว</string>
+    <string name="Moral">หนุนใจ</string>
+    <string name="Game">เกม</string>
+    <string name="title_exit">ACTB - เดินกับพระเจ้า</string>
+    <string name="message_exit">ปิดแอปพลิเคชั่น?</string>
+    <string name="Yes_exit">ปิด</string>
+    <string name="No_exit">ยกเลิก</string>
+</resources>

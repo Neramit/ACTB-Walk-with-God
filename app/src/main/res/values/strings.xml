@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">ACTB - Walk with God</string>
+    <string name="Announce">Announce</string>
+    <string name="Devotion">Devotion</string>
+    <string name="Moral">Moral</string>
+    <string name="Game">Game</string>
+    <string name="title_exit">ACTB - Walk with god</string>
+    <string name="message_exit">Are you sure to exit?</string>
+    <string name="Yes_exit">Exit</string>
+    <string name="No_exit">Cancel</string>
+</resources>
