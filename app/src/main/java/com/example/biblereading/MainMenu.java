@@ -160,13 +160,6 @@ public class MainMenu extends AppCompatActivity implements TabHost.OnTabChangeLi
     public void onPageSelected(int position) {
         Position = position;
         this.mTabHost.setCurrentTab(position);
-        if (position == 0) {
-            getSupportActionBar().setTitle(R.string.Announce);
-        } else if (position == 1) {
-            getSupportActionBar().setTitle(R.string.Devotion);
-        } else if (position == 2) {
-            getSupportActionBar().setTitle(R.string.Moral);
-        }
     }
 
     @Override
