@@ -12,6 +12,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Menu;
 import android.view.View;
 import android.widget.TabHost;
 
@@ -30,7 +31,7 @@ public class MainMenu extends AppCompatActivity implements TabHost.OnTabChangeLi
 
     private TabHost mTabHost;
     private HashMap<String, TabInfo> mapTabInfo = new HashMap<String, MainMenu.TabInfo>();
-    private int Position;
+    private Menu menu;
 
     private class TabInfo {
         private String tag;
@@ -76,6 +77,7 @@ public class MainMenu extends AppCompatActivity implements TabHost.OnTabChangeLi
         setContentView(R.layout.activity_main_menu);
         getSupportActionBar().setElevation(0);
         getSupportActionBar().setTitle(R.string.Announce);
+//        getMenuInflater().inflate(R.menu.main_menu, menu);
         // Initialise the TabHost
         this.initialiseTabHost(savedInstanceState);
         if (savedInstanceState != null) {
@@ -158,8 +160,8 @@ public class MainMenu extends AppCompatActivity implements TabHost.OnTabChangeLi
 
     @Override
     public void onPageSelected(int position) {
-        Position = position;
-        this.mTabHost.setCurrentTab(position);
+        int position1 = position;
+        this.mTabHost.setCurrentTab(position1);
     }
 
     @Override
@@ -167,9 +169,20 @@ public class MainMenu extends AppCompatActivity implements TabHost.OnTabChangeLi
     }
 
     @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        this.menu = menu;
+        // Inflate the menu; this adds items to the action bar if it is present.
+//        if (Position == 0) {
+            getMenuInflater().inflate(R.menu.main_menu, menu);
+//        }
+//        else if (Position == 1) {
+//            getMenuInflater().inflate(R.menu.group_menu, menu);
+//        }
+        return true;
+    }
+
+    @Override
     public void onTabChanged(String s) {
-//        Toast.makeText(this,"Test\nonTabChanged",Toast.LENGTH_SHORT).show();
-//        Toast.makeText(this,s,Toast.LENGTH_SHORT).show();
         switch (s) {
             case "Tab1":
                 getSupportActionBar().setTitle(R.string.Announce);
@@ -186,7 +199,7 @@ public class MainMenu extends AppCompatActivity implements TabHost.OnTabChangeLi
 //        this.mViewPager.setCurrentItem(pos);
 //        this.menu.clear();
 //        if (Position == 0) {
-//            getMenuInflater().inflate(R.menu.friend_menu, menu);
+//            getMenuInflater().inflate(R.menu.main_menu, menu);
 //        } else if (Position == 1) {
 //            getMenuInflater().inflate(R.menu.group_menu, menu);
 //        }

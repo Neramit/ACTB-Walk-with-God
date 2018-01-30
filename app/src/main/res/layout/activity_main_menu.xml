@@ -11,7 +11,7 @@
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/hint_white_text"/>
+        android:background="#1affffff"/>
 
     <TabHost
         android:id="@+id/tabHost"
@@ -42,10 +42,9 @@
                 android:layout_alignParentBottom="true"
                 android:layout_weight="0"
                 android:background="@color/black_overlay_1"
-                android:orientation="horizontal" />
+                android:orientation="horizontal"
+                android:scaleY="-1"/>
         </RelativeLayout>
     </TabHost>
-
-
 
 </RelativeLayout>

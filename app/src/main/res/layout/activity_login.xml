@@ -4,15 +4,46 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center"
+    android:gravity="center_horizontal"
     android:background="@drawable/sea"
-    tools:context="com.example.biblereading.LoginActivity">
+    android:orientation="vertical"
+    tools:context="com.example.biblereading.LoginActivity" >
 
-    <Button
+    <ImageView
+        android:layout_weight="0.5"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginTop="25dp"
         android:padding="20dp"
-        android:id="@+id/but"
-        android:text="@string/Announce"/>
+        android:src="@mipmap/icon_app"/>
+
+    <LinearLayout
+        android:layout_weight="0.5"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:padding="20dp"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="username"
+            android:textAlignment="center"/>
+
+        <EditText
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:background="@color/hint_white_text"/>
+
+        <Button
+            android:layout_marginTop="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="20dp"
+            android:layout_gravity="center"
+            android:id="@+id/but"
+            android:text="@string/Announce"/>
+    </LinearLayout>
 
 </LinearLayout>
