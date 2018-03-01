@@ -1,12 +1,34 @@
 <resources>
+    <!--App id-->
+    <string name="facebook_app_id">178570489575204</string>
+    <string name="fb_login_protocol_scheme">fb178570489575204</string>
+    <!--App name-->
     <string name="app_name">ACTB - Walk with God</string>
+    <!--Main menu-->
     <string name="Announce">Announce</string>
-    <string name="Devotion">Devotion</string>
-    <string name="Moral">Moral</string>
+    <string name="Devotion">Devotion &amp; Preaching</string>
     <string name="Game">Game</string>
+    <string name="Pray">Pray &amp; Encourage</string>
+    <string name="Location">Go to church</string>
+
+    <!--Items-->
+    <string name="button_logout">Logout</string>
+    <string name="button_setting">Setting</string>
+    <string name="button_about">About</string>
+    <string name="button_profile">Profile</string>
+    <!--Exit dialog-->
     <string name="title_exit">ACTB - Walk with god</string>
     <string name="message_exit">Are you sure to exit?</string>
     <string name="Yes_exit">Exit</string>
     <string name="No_exit">Cancel</string>
-    <string name="button_logout">Logout</string>
+
+    <!--Exit dialog-->
+    <string name="title_logout">Log out</string>
+    <string name="message_logout">Are you sure you want to log out?</string>
+    <string name="Yes_logout">Yes</string>
+    <string name="No_logout">No</string>
+
+    <!--Log in-->
+    <string name="prompt_password">Password</string>
+
 </resources>

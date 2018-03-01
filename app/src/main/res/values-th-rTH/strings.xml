@@ -1,12 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!--App name-->
     <string name="app_name">ACTB - เดินกับพระเจ้า</string>
+    <!--Main menu-->
     <string name="Announce">ประกาศงาน</string>
-    <string name="Devotion">เฝ้าเดี่ยว</string>
-    <string name="Moral">หนุนใจ</string>
+    <string name="Devotion">เฝ้าเดี่ยวและเทศนา</string>
     <string name="Game">เกม</string>
+    <string name="Pray">อธิษฐานและหนุนใจ</string>
+    <string name="Location">ไปโบสถ์</string>
+
+    <!--Items-->
+    <string name="button_logout">ออกจากระบบ</string>
+    <string name="button_setting">ตั้งค่า</string>
+    <string name="button_about">เกี่ยวกับ</string>
+    <string name="button_profile">โปรไฟล์ผู้ใช้</string>
+
+    <!--Exit dialog-->
     <string name="title_exit">ACTB - เดินกับพระเจ้า</string>
     <string name="message_exit">ปิดแอปพลิเคชั่น?</string>
     <string name="Yes_exit">ปิด</string>
     <string name="No_exit">ยกเลิก</string>
+
+    <!--Exit dialog-->
+    <string name="title_logout">ออกจากระบบ</string>
+    <string name="message_logout">คุณต้องการจะออกจากระบบหรือไม่?</string>
+    <string name="Yes_logout">ใช่</string>
+    <string name="No_logout">ไม่</string>
+
+    <!--Log in-->
+    <string name="prompt_password">รหัสผ่าน</string>
 </resources>

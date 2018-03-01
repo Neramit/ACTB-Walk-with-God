@@ -3,9 +3,29 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-        android:id="@+id/action_log_out"
+        android:id="@+id/action_profile"
+        android:itemBackground="#cc9d3e"
+        android:orderInCategory="99"
+        app:showAsAction="always"
+        android:icon="@drawable/profile_icon"
+        android:title="@string/button_profile"/>
+
+    <item
+        android:id="@+id/action_setting"
         android:itemBackground="#cc9d3e"
         android:orderInCategory="100"
+        android:title="@string/button_setting" />
+
+    <item
+        android:id="@+id/action_about"
+        android:itemBackground="#cc9d3e"
+        android:orderInCategory="101"
+        android:title="@string/button_about" />
+
+    <item
+        android:id="@+id/action_log_out"
+        android:itemBackground="#cc9d3e"
+        android:orderInCategory="104"
         android:title="@string/button_logout" />
 
 </menu>

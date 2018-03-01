@@ -29,21 +29,29 @@
             android:text="username"
             android:textAlignment="center"/>
 
-        <EditText
-            android:layout_marginTop="10dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="5dp"
-            android:background="@color/hint_white_text"/>
-
-        <Button
-            android:layout_marginTop="10dp"
+        <com.facebook.login.widget.LoginButton
+            android:id="@+id/login_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="20dp"
-            android:layout_gravity="center"
-            android:id="@+id/but"
-            android:text="@string/Announce"/>
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="30dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/display_name"
+            android:text=""
+            android:textAlignment="center"
+            android:textColor="@color/hint_white_text"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/Uid"
+            android:text=""
+            android:textAlignment="center"
+            android:textColor="@color/hint_white_text"/>
     </LinearLayout>
 
 </LinearLayout>

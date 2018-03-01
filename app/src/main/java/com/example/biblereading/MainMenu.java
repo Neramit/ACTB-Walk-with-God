@@ -2,6 +2,7 @@ package com.example.biblereading;
 
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
@@ -13,13 +14,18 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.TabHost;
 
 import com.example.biblereading.Adapter.PagerAdapter;
 import com.example.biblereading.Fragment.AnnouceFragment;
 import com.example.biblereading.Fragment.DevotionFragment;
-import com.example.biblereading.Fragment.MoralFragment;
+import com.example.biblereading.Fragment.GameFragment;
+import com.example.biblereading.Fragment.LocationFragment;
+import com.example.biblereading.Fragment.PrayFragment;
+import com.facebook.login.LoginManager;
+import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.HashMap;
 import java.util.List;
@@ -32,6 +38,7 @@ public class MainMenu extends AppCompatActivity implements TabHost.OnTabChangeLi
     private TabHost mTabHost;
     private HashMap<String, TabInfo> mapTabInfo = new HashMap<String, MainMenu.TabInfo>();
     private Menu menu;
+    private FirebaseAuth mAuth;
 
     private class TabInfo {
         private String tag;
@@ -78,6 +85,8 @@ public class MainMenu extends AppCompatActivity implements TabHost.OnTabChangeLi
         getSupportActionBar().setElevation(0);
         getSupportActionBar().setTitle(R.string.Announce);
 //        getMenuInflater().inflate(R.menu.main_menu, menu);
+        //Firebase Auth
+        mAuth = FirebaseAuth.getInstance();
         // Initialise the TabHost
         this.initialiseTabHost(savedInstanceState);
         if (savedInstanceState != null) {
@@ -99,8 +108,10 @@ public class MainMenu extends AppCompatActivity implements TabHost.OnTabChangeLi
 
         List<Fragment> fragments = new Vector<Fragment>();
         fragments.add(Fragment.instantiate(this, AnnouceFragment.class.getName()));
+        fragments.add(Fragment.instantiate(this, PrayFragment.class.getName()));
         fragments.add(Fragment.instantiate(this, DevotionFragment.class.getName()));
-        fragments.add(Fragment.instantiate(this, MoralFragment.class.getName()));
+        fragments.add(Fragment.instantiate(this, LocationFragment.class.getName()));
+        fragments.add(Fragment.instantiate(this, GameFragment.class.getName()));
         PagerAdapter mPagerAdapter = new PagerAdapter(super.getSupportFragmentManager(), fragments);
         //
         ViewPager mViewPager = (ViewPager) super.findViewById(R.id.viewpager);
@@ -137,9 +148,13 @@ public class MainMenu extends AppCompatActivity implements TabHost.OnTabChangeLi
         TabInfo tabInfo = null;
         MainMenu.AddTab(this, this.mTabHost, this.mTabHost.newTabSpec("Tab1").setIndicator("", getDrawable(R.drawable.annouce_selector)), (tabInfo = new TabInfo("Tab1", AnnouceFragment.class, args)));
         this.mapTabInfo.put(tabInfo.tag, tabInfo);
-        MainMenu.AddTab(this, this.mTabHost, this.mTabHost.newTabSpec("Tab2").setIndicator("", getDrawable(R.drawable.annouce_selector)), (tabInfo = new TabInfo("Tab2", DevotionFragment.class, args)));
+        MainMenu.AddTab(this, this.mTabHost, this.mTabHost.newTabSpec("Tab2").setIndicator("", getDrawable(R.drawable.pray_selector)), (tabInfo = new TabInfo("Tab2", PrayFragment.class, args)));
         this.mapTabInfo.put(tabInfo.tag, tabInfo);
-        MainMenu.AddTab(this, this.mTabHost, this.mTabHost.newTabSpec("Tab3").setIndicator("", getDrawable(R.drawable.annouce_selector)), (tabInfo = new TabInfo("Tab3", MoralFragment.class, args)));
+        MainMenu.AddTab(this, this.mTabHost, this.mTabHost.newTabSpec("Tab3").setIndicator("", getDrawable(R.drawable.devotion_selector)), (tabInfo = new TabInfo("Tab3", DevotionFragment.class, args)));
+        this.mapTabInfo.put(tabInfo.tag, tabInfo);
+        MainMenu.AddTab(this, this.mTabHost, this.mTabHost.newTabSpec("Tab4").setIndicator("", getDrawable(R.drawable.location_selector)), (tabInfo = new TabInfo("Tab4", LocationFragment.class, args)));
+        this.mapTabInfo.put(tabInfo.tag, tabInfo);
+        MainMenu.AddTab(this, this.mTabHost, this.mTabHost.newTabSpec("Tab5").setIndicator("", getDrawable(R.drawable.game_selector)), (tabInfo = new TabInfo("Tab5", GameFragment.class, args)));
         this.mapTabInfo.put(tabInfo.tag, tabInfo);
         // Default to first tab
 //        this.onTabChanged("Tab1");
@@ -160,8 +175,7 @@ public class MainMenu extends AppCompatActivity implements TabHost.OnTabChangeLi
 
     @Override
     public void onPageSelected(int position) {
-        int position1 = position;
-        this.mTabHost.setCurrentTab(position1);
+        this.mTabHost.setCurrentTab(position);
     }
 
     @Override
@@ -172,13 +186,41 @@ public class MainMenu extends AppCompatActivity implements TabHost.OnTabChangeLi
     public boolean onCreateOptionsMenu(Menu menu) {
         this.menu = menu;
         // Inflate the menu; this adds items to the action bar if it is present.
-//        if (Position == 0) {
             getMenuInflater().inflate(R.menu.main_menu, menu);
-//        }
-//        else if (Position == 1) {
-//            getMenuInflater().inflate(R.menu.group_menu, menu);
-//        }
         return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+
+        //noinspection SimplifiableIfStatement
+        if (id == R.id.action_log_out) {
+
+            final AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.setTitle(R.string.title_logout);
+            builder.setMessage(R.string.message_logout);
+
+            builder.setPositiveButton(R.string.Yes_logout, new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    signOut();
+                    startActivity(new Intent(MainMenu.this, LoginActivity.class));
+                    finish();
+                }
+            });
+            builder.setNegativeButton(R.string.No_logout, new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    dialog.dismiss();
+                }
+            });
+            builder.show();
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     @Override
@@ -188,10 +230,16 @@ public class MainMenu extends AppCompatActivity implements TabHost.OnTabChangeLi
                 getSupportActionBar().setTitle(R.string.Announce);
                 break;
             case "Tab2":
-                getSupportActionBar().setTitle(R.string.Devotion);
+                getSupportActionBar().setTitle(R.string.Pray);
                 break;
             case "Tab3":
-                getSupportActionBar().setTitle(R.string.Moral);
+                getSupportActionBar().setTitle(R.string.Devotion);
+                break;
+            case "Tab4":
+                getSupportActionBar().setTitle(R.string.Location);
+                break;
+            case "Tab5":
+                getSupportActionBar().setTitle(R.string.Game);
                 break;
         }
 
@@ -203,6 +251,12 @@ public class MainMenu extends AppCompatActivity implements TabHost.OnTabChangeLi
 //        } else if (Position == 1) {
 //            getMenuInflater().inflate(R.menu.group_menu, menu);
 //        }
+    }
+
+    public void signOut() {
+        mAuth.signOut();
+        LoginManager.getInstance().logOut();
+//        updateUI(null);
     }
 
     @Override
