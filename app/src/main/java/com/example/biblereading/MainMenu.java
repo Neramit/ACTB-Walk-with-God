@@ -36,8 +36,9 @@ import java.util.Vector;
 public class MainMenu extends AppCompatActivity implements TabHost.OnTabChangeListener, ViewPager.OnPageChangeListener {
 
     private TabHost mTabHost;
+    private ViewPager mViewPager;
     private HashMap<String, TabInfo> mapTabInfo = new HashMap<String, MainMenu.TabInfo>();
-    private Menu menu;
+    Menu menu;
     private FirebaseAuth mAuth;
 
     private class TabInfo {
@@ -82,7 +83,7 @@ public class MainMenu extends AppCompatActivity implements TabHost.OnTabChangeLi
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_menu);
-        getSupportActionBar().setElevation(0);
+//        getSupportActionBar().setElevation(0);
         getSupportActionBar().setTitle(R.string.Announce);
 //        getMenuInflater().inflate(R.menu.main_menu, menu);
         //Firebase Auth
@@ -114,9 +115,9 @@ public class MainMenu extends AppCompatActivity implements TabHost.OnTabChangeLi
         fragments.add(Fragment.instantiate(this, GameFragment.class.getName()));
         PagerAdapter mPagerAdapter = new PagerAdapter(super.getSupportFragmentManager(), fragments);
         //
-        ViewPager mViewPager = (ViewPager) super.findViewById(R.id.viewpager);
-        mViewPager.setAdapter(mPagerAdapter);
-        mViewPager.setOnPageChangeListener(this);
+        this.mViewPager = (ViewPager) super.findViewById(R.id.viewpager);
+        this.mViewPager.setAdapter(mPagerAdapter);
+        this.mViewPager.setOnPageChangeListener(this);
     }
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
@@ -199,7 +200,6 @@ public class MainMenu extends AppCompatActivity implements TabHost.OnTabChangeLi
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_log_out) {
-
             final AlertDialog.Builder builder = new AlertDialog.Builder(this);
             builder.setTitle(R.string.title_logout);
             builder.setMessage(R.string.message_logout);
@@ -220,29 +220,38 @@ public class MainMenu extends AppCompatActivity implements TabHost.OnTabChangeLi
             });
             builder.show();
         }
+        if (id == R.id.action_profile) {
+            startActivity(new Intent(this,ProfileActivity.class));
+        }
         return super.onOptionsItemSelected(item);
     }
 
     @Override
     public void onTabChanged(String s) {
+        int pos = this.mTabHost.getCurrentTab();
+        this.mViewPager.setCurrentItem(pos);
         switch (s) {
-            case "Tab1":
+            case "Tab1":{
+                this.mTabHost.setCurrentTab(0);
                 getSupportActionBar().setTitle(R.string.Announce);
-                break;
-            case "Tab2":
+                break;}
+            case "Tab2":{
+                this.mTabHost.setCurrentTab(1);
                 getSupportActionBar().setTitle(R.string.Pray);
-                break;
-            case "Tab3":
+                break;}
+            case "Tab3":{
+                this.mTabHost.setCurrentTab(2);
                 getSupportActionBar().setTitle(R.string.Devotion);
-                break;
-            case "Tab4":
+                break;}
+            case "Tab4":{
+                this.mTabHost.setCurrentTab(3);
                 getSupportActionBar().setTitle(R.string.Location);
-                break;
-            case "Tab5":
+                break;}
+            case "Tab5":{
+                this.mTabHost.setCurrentTab(4);
                 getSupportActionBar().setTitle(R.string.Game);
-                break;
+                break;}
         }
-
 //        int pos = this.mTabHost.getCurrentTab();
 //        this.mViewPager.setCurrentItem(pos);
 //        this.menu.clear();
@@ -260,7 +269,7 @@ public class MainMenu extends AppCompatActivity implements TabHost.OnTabChangeLi
     }
 
     @Override
-    public void onBackPressed() {
+        public void onBackPressed() {
         final AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle(R.string.title_exit);
         builder.setIcon(R.drawable.icon_app);

@@ -16,7 +16,7 @@ public class DevotionFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = null;
-        view = inflater.inflate(R.layout.fragment_pray, container, false);
+        view = inflater.inflate(R.layout.fragment_devotion, container, false);
         return view;
     }
 }

@@ -36,10 +36,13 @@ public class LoginActivity extends AppCompatActivity {
     CallbackManager callbackManager = CallbackManager.Factory.create();
     private static final String EMAIL = "email";
     LoginButton loginButton;
+//    private ProgressDialog dialog;
     private FirebaseAuth mAuth;
+
     private static final String TAG = "FacebookLogin";
     TextView mStatusTextView;
     TextView mDetailTextView;
+    boolean loggedIn = AccessToken.getCurrentAccessToken() == null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,22 +51,27 @@ public class LoginActivity extends AppCompatActivity {
         AppEventsLogger.activateApp(this);
         setContentView(R.layout.activity_login);
 
-        boolean loggedIn = AccessToken.getCurrentAccessToken() == null;
+//        dialog = new ProgressDialog(this);
+
         //Firebase Auth
         mAuth = FirebaseAuth.getInstance();
 
         mStatusTextView = (TextView) findViewById(R.id.display_name);
         mDetailTextView = (TextView) findViewById(R.id.Uid);
         loginButton = (LoginButton) findViewById(R.id.login_button);
-        loginButton.setReadPermissions(Arrays.asList(EMAIL));
-        // If you are using in a fragment, call loginButton.setFragment(this);
+        loginButton.setReadPermissions(Arrays.asList("public_profile","email"));
+        // If you are using in a fragment
+        // loginButton.setFragment(this);
 
         // Callback registration
-//        LoginManager.getInstance().logInWithReadPermissions(this, Arrays.asList("public_profile", "profile_picture"));
+//        LoginManager.getInstance().logInWithReadPermissions(this, Arrays.asList("public_profile",""));
         loginButton.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
+
             @Override
             public void onSuccess(LoginResult loginResult) {
                 // App code
+//                if (dialog.isShowing()) {
+//                    dialog.dismiss();}
                 Log.d(TAG, "facebook:onSuccess:" + loginResult);
                 handleFacebookAccessToken(loginResult.getAccessToken());
                 startActivity(new Intent(LoginActivity.this, MainMenu.class));
@@ -80,23 +88,30 @@ public class LoginActivity extends AppCompatActivity {
                 // App code
             }
         });
-        if (!loggedIn) {
-            startActivity(new Intent(LoginActivity.this, MainMenu.class));
-            finish();
-        }
+
     }
 
     @Override
     public void onStart() {
         super.onStart();
+//        boolean loggedIn = AccessToken.getCurrentAccessToken() == null;
         // Check if user is signed in (non-null) and update UI accordingly.
-        FirebaseUser currentUser = mAuth.getCurrentUser();
-        updateUI(currentUser);
+        if (!loggedIn) {
+            startActivity(new Intent(LoginActivity.this, MainMenu.class));
+            finish();
+        }
+//        FirebaseUser currentUser = mAuth.getCurrentUser();
+//        updateUI(currentUser);
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         callbackManager.onActivityResult(requestCode, resultCode, data);
+
+//        dialog = new ProgressDialog(this);
+//        dialog.setMessage("Doing something, please wait.");
+//        dialog.show();
+//        //
         super.onActivityResult(requestCode, resultCode, data);
     }
 
@@ -137,8 +152,8 @@ public class LoginActivity extends AppCompatActivity {
     private void updateUI(FirebaseUser user) {
 //        hideProgressDialog();
         if (user != null) {
-            mStatusTextView.setText("Display" +  user.getDisplayName());
-            mDetailTextView.setText("Uid" + user.getUid());
+            mStatusTextView.setText("Display : " + user.getDisplayName());
+            mDetailTextView.setText("Uid : " + user.getUid());
 
             findViewById(R.id.login_button).setVisibility(View.GONE);
 //            findViewById(R.id.button_facebook_signout).setVisibility(View.VISIBLE);

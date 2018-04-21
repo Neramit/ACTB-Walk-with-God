@@ -4,6 +4,9 @@
     <string name="fb_login_protocol_scheme">fb178570489575204</string>
     <!--App name-->
     <string name="app_name">ACTB - Walk with God</string>
+
+    <!--Get Start-->
+    <string name="user_name">Type name for show in church</string>
     <!--Main menu-->
     <string name="Announce">Announce</string>
     <string name="Devotion">Devotion &amp; Preaching</string>
@@ -22,7 +25,7 @@
     <string name="Yes_exit">Exit</string>
     <string name="No_exit">Cancel</string>
 
-    <!--Exit dialog-->
+    <!--Log out dialog-->
     <string name="title_logout">Log out</string>
     <string name="message_logout">Are you sure you want to log out?</string>
     <string name="Yes_logout">Yes</string>

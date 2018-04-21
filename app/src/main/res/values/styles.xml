@@ -5,13 +5,13 @@
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
-        <!--<item name="android:windowTranslucentStatus" tools:targetApi="kitkat">true</item>-->
+        <item name="colorAccent">@color/com_facebook_button_send_background_color</item>
     </style>
 
     <style name="AppTheme.ActionBar.Transparent" parent="AppTheme">
         <!--<item name="android:windowContentOverlay">@android:color/transparent</item>-->
         <item name="windowActionBarOverlay">true</item>
+        <item name="android:windowTranslucentStatus" tools:targetApi="kitkat">true</item>
         <!--<item name="colorPrimary">@android:color/transparent</item>-->
     </style>
 

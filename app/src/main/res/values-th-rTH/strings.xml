@@ -2,6 +2,8 @@
 <resources>
     <!--App name-->
     <string name="app_name">ACTB - เดินกับพระเจ้า</string>
+    <!--Get Start-->
+    <string name="user_name">Type name for show in church</string>
     <!--Main menu-->
     <string name="Announce">ประกาศงาน</string>
     <string name="Devotion">เฝ้าเดี่ยวและเทศนา</string>
@@ -21,7 +23,7 @@
     <string name="Yes_exit">ปิด</string>
     <string name="No_exit">ยกเลิก</string>
 
-    <!--Exit dialog-->
+    <!--Log out dialog-->
     <string name="title_logout">ออกจากระบบ</string>
     <string name="message_logout">คุณต้องการจะออกจากระบบหรือไม่?</string>
     <string name="Yes_logout">ใช่</string>
