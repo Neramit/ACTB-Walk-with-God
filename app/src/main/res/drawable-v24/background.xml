@@ -4,7 +4,7 @@
     <item android:drawable="@color/colorPrimary" />
 
     <item>
-        <bitmap android:src="@drawable/bible"
+        <bitmap android:src="@drawable/bible_logo"
             android:gravity="center" />
     </item>
 

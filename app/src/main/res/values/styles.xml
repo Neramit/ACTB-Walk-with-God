@@ -1,18 +1,18 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="AppTheme" parent="Theme.AppCompat">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/com_facebook_button_send_background_color</item>
-    </style>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:colorBackground">@color/background_blue_light</item>
 
-    <style name="AppTheme.ActionBar.Transparent" parent="AppTheme">
-        <!--<item name="android:windowContentOverlay">@android:color/transparent</item>-->
-        <item name="windowActionBarOverlay">true</item>
-        <item name="android:windowTranslucentStatus" tools:targetApi="kitkat">true</item>
-        <!--<item name="colorPrimary">@android:color/transparent</item>-->
+        <!-- To change the popup menu and app text color  -->
+        <item name="android:textColor">@color/dark_text</item>
+
+        <!--&lt;!&ndash; To change the background of options menu&ndash;&gt;-->
+        <!--<item name="android:itemBackground">@color/colorPrimary</item>-->
     </style>
 
     <style name="SplashTheme" parent="Theme.AppCompat.NoActionBar">

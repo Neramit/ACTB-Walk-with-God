@@ -56,8 +56,8 @@ public class LoginActivity extends AppCompatActivity {
         //Firebase Auth
         mAuth = FirebaseAuth.getInstance();
 
-        mStatusTextView = (TextView) findViewById(R.id.display_name);
-        mDetailTextView = (TextView) findViewById(R.id.Uid);
+//        mStatusTextView = (TextView) findViewById(R.id.display_name);
+//        mDetailTextView = (TextView) findViewById(R.id.Uid);
         loginButton = (LoginButton) findViewById(R.id.login_button);
         loginButton.setReadPermissions(Arrays.asList("public_profile","email"));
         // If you are using in a fragment
@@ -72,9 +72,11 @@ public class LoginActivity extends AppCompatActivity {
                 // App code
 //                if (dialog.isShowing()) {
 //                    dialog.dismiss();}
+
                 Log.d(TAG, "facebook:onSuccess:" + loginResult);
                 handleFacebookAccessToken(loginResult.getAccessToken());
                 startActivity(new Intent(LoginActivity.this, MainMenu.class));
+                Toast.makeText(LoginActivity.this, R.string.Login_success,Toast.LENGTH_LONG).show();
                 finish();
             }
 
@@ -152,8 +154,8 @@ public class LoginActivity extends AppCompatActivity {
     private void updateUI(FirebaseUser user) {
 //        hideProgressDialog();
         if (user != null) {
-            mStatusTextView.setText("Display : " + user.getDisplayName());
-            mDetailTextView.setText("Uid : " + user.getUid());
+//            mStatusTextView.setText("Display : " + user.getDisplayName());
+//            mDetailTextView.setText("Uid : " + user.getUid());
 
             findViewById(R.id.login_button).setVisibility(View.GONE);
 //            findViewById(R.id.button_facebook_signout).setVisibility(View.VISIBLE);

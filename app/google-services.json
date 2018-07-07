@@ -15,6 +15,18 @@
       },
       "oauth_client": [
         {
+          "client_id": "36405816041-2f628v8ms18odtocencm9g75ev5nudt0.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.biblereading",
+            "certificate_hash": "d82286ab68795b0422fb4703f4f413a4194188e5"
+          }
+        },
+        {
+          "client_id": "36405816041-m7vdfvei34n33nge84uimge6jesgtgs0.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
           "client_id": "36405816041-m7vdfvei34n33nge84uimge6jesgtgs0.apps.googleusercontent.com",
           "client_type": 3
         }
@@ -29,8 +41,13 @@
           "status": 1
         },
         "appinvite_service": {
-          "status": 1,
-          "other_platform_oauth_client": []
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "36405816041-m7vdfvei34n33nge84uimge6jesgtgs0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         },
         "ads_service": {
           "status": 2

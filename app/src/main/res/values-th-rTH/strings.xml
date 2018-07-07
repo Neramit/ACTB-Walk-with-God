@@ -31,4 +31,5 @@
 
     <!--Log in-->
     <string name="prompt_password">รหัสผ่าน</string>
+    <string name="Login_success">ลงชื่อเข้าใช้ผ่าน Facebook\nสำเร็จ !!</string>
 </resources>

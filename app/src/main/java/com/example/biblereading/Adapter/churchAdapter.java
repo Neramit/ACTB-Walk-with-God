@@ -1,10 +1,10 @@
-package com.example.biblereading;
+package com.example.biblereading.Adapter;
 
 /**
  * Created by Neramit777 on 3/17/2018 at 1:26 PM.
  */
 
-public class churchAdapter{
+public class churchAdapter {
 
 //    private static final int TYPE_ITEM = 0;
 //    private static final int TYPE_SEPARATOR = 1;

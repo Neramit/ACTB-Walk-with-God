@@ -83,7 +83,7 @@ public class MainMenu extends AppCompatActivity implements TabHost.OnTabChangeLi
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_menu);
-//        getSupportActionBar().setElevation(0);
+//        getActionBar().setElevation(0);
         getSupportActionBar().setTitle(R.string.Announce);
 //        getMenuInflater().inflate(R.menu.main_menu, menu);
         //Firebase Auth

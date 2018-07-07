@@ -4,55 +4,61 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/bg"
     android:gravity="center_horizontal"
-    android:background="@drawable/sea"
     android:orientation="vertical"
-    tools:context="com.example.biblereading.LoginActivity" >
-
-    <ImageView
-        android:layout_weight="0.5"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:layout_marginTop="25dp"
-        android:padding="20dp"
-        android:src="@mipmap/icon_app"/>
+    tools:context="com.example.biblereading.LoginActivity">
 
     <LinearLayout
-        android:layout_weight="0.5"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:padding="20dp"
-        android:gravity="center"
+        android:layout_weight="0.5"
+
         android:orientation="vertical">
-        <TextView
+        <ImageView
             android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.5"
+            android:layout_marginTop="25dp"
+            android:padding="20dp"
+            android:src="@mipmap/icon_app"
+            tools:ignore="NestedWeights" />
+
+        <TextView
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="username"
-            android:textAlignment="center"/>
+            android:layout_gravity="center_horizontal"
+            android:background="@color/hint_white_text"
+            android:padding="5dp"
+            android:text="@string/app_name"
+            android:textAlignment="center" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.5"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="20dp">
 
         <com.facebook.login.widget.LoginButton
             android:id="@+id/login_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="30dp"
-            android:layout_marginBottom="30dp" />
+            android:layout_marginBottom="30dp"
+            android:layout_marginTop="30dp" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/display_name"
-            android:text=""
-            android:textAlignment="center"
-            android:textColor="@color/hint_white_text"/>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/Uid"
-            android:text=""
-            android:textAlignment="center"
-            android:textColor="@color/hint_white_text"/>
     </LinearLayout>
 
+    <TextView
+        android:id="@+id/remember_me_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:text="Development by Neramit  Janta"
+        android:textAlignment="center"
+        android:textColor="@color/white_text" />
 </LinearLayout>

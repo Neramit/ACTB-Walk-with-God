@@ -25,7 +25,9 @@ public class LocationFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = null;
         view = inflater.inflate(R.layout.fragment_location, container, false);
+
         churchList = (ListView) view.findViewById(R.id.church_list);
+
         return view;
     }
 

@@ -29,7 +29,8 @@
         <activity
             android:name=".MainMenu"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.ActionBar.Transparent" />
+            android:theme="@style/AppTheme"
+            android:windowSoftInputMode="stateHidden|adjustPan"/>
         <!-- Facebook\ -->
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"
